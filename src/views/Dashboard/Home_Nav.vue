@@ -4,9 +4,11 @@ import {useUserStore,useDataStore} from '@/store/user.js'
 
 import {ref, defineProps, watch} from 'vue'
 import {useRoute} from "vue-router";
-import i18n from "../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
+import logo from '@/assets/img/logo.png';
+import { config } from '@/assets/config';
 
-const title=window.config.title
+const title=config.title
 const store=useUserStore()
 const store1=useDataStore()
 
@@ -66,7 +68,7 @@ const out = () => {
 
   <div class="h-full overflow-y-scroll">
     <div class="flex justify-around items-center">
-      <img class="w-12" src="/img/logo.png" alt="">
+      <img class="w-12" :src="logo" alt="">
       <p class="text-2xl text-[var(--theme-title)]">{{ title }}</p>
     </div>
     <!-- 导航 -->

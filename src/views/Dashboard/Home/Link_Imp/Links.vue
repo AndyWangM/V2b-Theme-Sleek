@@ -5,7 +5,10 @@ import {useDataStore} from "@/store/user.js";
 import vueQr from 'vue-qr/src/packages/vue-qr.vue'
 import {Base64} from "js-base64";
 import {ref} from 'vue'
-import i18n from "../../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
+import logo from '@/assets/img/logo.png';
+import { config } from '@/assets/config';
+
 const show=ref(true)
 const esc=()=>{
   show.value=false
@@ -35,32 +38,32 @@ const Links = {
   'Android': [
     {
       name: "Clash", img: img.Class,
-      link: `clash://install-config?url=${store.Subscribe.subscribe_url}&name=${window.config.title}`
+      link: `clash://install-config?url=${encodeURIComponent(store.Subscribe.subscribe_url + "&flag=meta")}&name=${config.title}`
     },
   ],
   'IOS': [
     {
       name: "Shadowrocket", img: img.Shadowrocket,
-      link: `shadowrocket://add/sub://${Base64.encode(store.Subscribe.subscribe_url)}?remark=${window.config.title}`
+      link: `shadowrocket://add/sub://${Base64.encode(store.Subscribe.subscribe_url)}?remark=${config.title}`
  },
     {name: "Surge", img: img.Surge,
-      link:`surge://install-config?url=${store.Subscribe.subscribe_url}&name=${window.config.title}`},
+      link:`surge://install-config?url=${store.Subscribe.subscribe_url}&name=${config.title}`},
     {name: "Stash", img: img.Stash,
-      link: `stash://install-config?url=${store.Subscribe.subscribe_url}&name=${window.config.title}`},
+      link: `stash://install-config?url=${store.Subscribe.subscribe_url}&name=${config.title}`},
     {name:"QuantumultX",img:img.Qx,
-    link: `quantumult-x:///update-configuration?remote-resource={"server_remote":["${store.Subscribe.subscribe_url},tag=${window.config.title}"]}`
+    link: `quantumult-x:///update-configuration?remote-resource={"server_remote":["${store.Subscribe.subscribe_url},tag=${config.title}"]}`
     }
   ],
   'Windows': [
     {
       name: "Clash For Windows", img: img.Class,
-      link: `clash://install-config?url=${store.Subscribe.subscribe_url}&name=${window.config.title}`
+      link: `clash://install-config?url=${store.Subscribe.subscribe_url}&name=${config.title}`
     },
   ],
   'MacOs': [
     {
       name: "Clash X", img: img.Class,
-      link: `clash://install-config?url=${store.Subscribe.subscribe_url}&name=${window.config.title}`
+      link: `clash://install-config?url=${store.Subscribe.subscribe_url}&name=${config.title}`
     }
   ]
 }
@@ -103,7 +106,7 @@ const Links = {
              </template>
            </div>
            <div class="h-full m-auto">
-             <vue-qr  logoSrc="/img/logo.png" :text="store.Subscribe.subscribe_url" :size="150"></vue-qr>
+             <vue-qr  :logoSrc="logo" :text="store.Subscribe.subscribe_url" :size="150"></vue-qr>
            </div>
 
           </TabPanels>

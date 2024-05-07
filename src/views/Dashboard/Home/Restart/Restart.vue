@@ -38,7 +38,7 @@ import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } fro
 import { ExclamationTriangleIcon } from '@heroicons/vue/24/outline'
 import {Restart_Security} from "@/api/v1/Restart.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
-import i18n from "../../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 
 const open = ref(true)
 const pop=defineProps({

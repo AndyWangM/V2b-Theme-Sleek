@@ -1,5 +1,7 @@
 <script setup>
-const country=window.config.country
+import { config } from '@/assets/config';
+
+const country=config.country
 </script>
 
 <template>
@@ -22,7 +24,7 @@ const country=window.config.country
 </template>
 
 <style scoped>
-span>>>svg{
+span :deep()svg{
   width: 100%;
   height: 100%;
 }

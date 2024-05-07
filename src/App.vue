@@ -4,7 +4,7 @@ import {useUserStore} from "@/store/user.js";
 const store = useUserStore()
 </script>
 <template>
-  <div :class="store.Theme?'theme_dark bg-[var(--theme-bg)]':'theme_white'">
+  <div :class="store.Theme?'theme_dark bg-[var(--theme-bg)]':'theme_white'" style="height: 100vh;">
     <div class="w-full h-full ">
       <router-view></router-view>
     </div>

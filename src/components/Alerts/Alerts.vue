@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps,onMounted } from 'vue';
+import { onMounted } from 'vue';
 const pop=defineProps({
   title: String,
   conten: String,

@@ -4,7 +4,7 @@ import {Fetch, Get_details, Get_oder, Get_server, Get_ticket, Language} from "@/
 import {Is_Pay} from "@/components/Pay_cancel/index.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
 import {Show_Bulletin} from "@/components/Bulletin/index.js";
-import i18n from "../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 
 const store = useDataStore()
 

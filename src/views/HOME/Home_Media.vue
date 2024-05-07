@@ -1,6 +1,7 @@
 <script setup>
+import { config } from '@/assets/config';
 
-const streammedia=window.config.streammedia
+const streammedia=config.streammedia
 </script>
 <template>
   <div class="flex justify-center overflow-hidden mt-[4rem]">

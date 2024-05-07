@@ -1,6 +1,6 @@
 <script setup>
 import {useDataStore} from "@/store/user.js";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 
 const show = useDataStore()
 

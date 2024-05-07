@@ -6,6 +6,11 @@ import {Show_Alerts} from '@/components/Alerts/index.js'
 import {useDataStore} from "@/store/user.js";
 import {Is_Pay} from "@/components/Pay_cancel/index.js";
 import router from "@/router/index.js";
+import vueQr from 'vue-qr/src/packages/vue-qr.vue'
+import pay from "@/assets/icon/pay.svg";
+
+const pay_url=ref();
+pay_url.value = "";
 const show=useDataStore()
 
 const pop=defineProps({
@@ -27,20 +32,25 @@ const close_pop=()=>{
 
 // 支付
 const go=(id)=>{
+  pay_url.value = ""
   order_checkout(pop.data,id).then(res=>{
     if (res.data.data===true){
       router.push("/dashboard")
     }else {
-      window.location.href=res.data.data
+      if (res.data.type == 0) {
+        pay_url.value = res.data.data        
+        console.log(pay_url.value)
+      } else {
+        window.location.href=res.data.data
+      }
     }
     
   }).catch(err=>{
     Show_Alerts(err.data.message,null,400)
   }).finally(()=>{
-    pop.move_node()
+    !pay_url.value && pop.move_node()
   })
 }
-
 
 // 取消 
 const cancel=()=>{
@@ -54,6 +64,14 @@ const cancel=()=>{
     }).catch(err=>{
         Show_Alerts("取消失败","重新尝试刷新",400)
     })
+}
+
+const updateOrder=()=>{
+  Get_oder().then(res=>{
+    show.OderList=res.data.data
+    Is_Pay(show.OderList[0])
+    close_pop()
+  })
 }
 </script>
 <template>
@@ -80,7 +98,7 @@ const cancel=()=>{
                 @click="go(item.id)"
                 class="bg-[var(--theme-com-item)] shadow-lg shadow-[var(--theme-shadow-bg)]
                 flex gap-2 items-center rounded-lg p-2 cursor-pointer">
-              <img class="w-5" src="/public/icon/pay.svg" alt="">
+              <img class="w-5" :src="pay" alt="">
               <p>{{ item.name }}</p>
             </div>
           </div>
@@ -93,7 +111,12 @@ const cancel=()=>{
               type="button" class="w-[80%] p-2 bg-green-600 rounded-2xl">关闭/取消订单</button>
         </div>
 
+      </div>
+    </div>
 
+     <div v-if="pay_url" class="absolute w-full h-full top-0 bg-[rgba(0,0,0,0.9)]" style="z-index: 9999;">
+      <div class="w-full h-full flex justify-center items-center" @click="updateOrder()">
+        <vue-qr :text="pay_url" :size="250" @click="(e) => e.stopPropagation()"></vue-qr>
       </div>
     </div>
 

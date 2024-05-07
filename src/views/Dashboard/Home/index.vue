@@ -9,7 +9,7 @@ import bulletin from '@/views/Dashboard/Home/bulletin.vue'
 import Jiedian from "@/views/Dashboard/Home/Jiedian.vue";
 import Oder from "@/components/Oder/Oder.vue";
 import Table from "@/views/Dashboard/Ticket/Table.vue";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 
 const cs_index = ref(0)
 

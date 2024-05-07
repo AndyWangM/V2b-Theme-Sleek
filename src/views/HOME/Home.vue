@@ -6,23 +6,26 @@ import Home_Media from "@/views/HOME/Home_Media.vue";
 import Home_Country from "@/views/HOME/Home_Country.vue";
 import Home_Pric from "@/views/HOME/Home_Pric.vue";
 import {useRoute} from "vue-router";
+import hero from "@/assets/img/hero-Illustration-1.png";
+import { config } from '@/assets/config';
+
 const ShowNum = ref(0)
 const DownList = ref()
 
 
 watch(ShowNum,value => {
-  DownList.value = window.config.down[value]
+  // DownList.value = config.down[value]
 }, {
   immediate: true
 })
 
-const title=window.config.title
+const title=config.title
 
-const down=window.config.down
-const taocan=window.config.taocan
+const down=config.down
+const taocan=config.taocan
 
-const title1=window.config.title1
-const title2=window.config.title2.split(",")
+const title1=config.title1
+const title2=config.title2.split(",")
 </script>
 <template>
 
@@ -61,25 +64,25 @@ const title2=window.config.title2.split(",")
 
             <!-- 下载 -->
 
-            <div class="bg-slate-900 overflow-x-scroll rounded-2xl  max-w-[90vw] overflow-hidden whitespace-nowrap sm:w-[200%]  items-baseline p-3">
+            <!-- <div class="bg-slate-900 overflow-x-scroll rounded-2xl  max-w-[90vw] overflow-hidden whitespace-nowrap sm:w-[200%]  items-baseline p-3">
               <p v-for="(item, index) in down"
                  class="px-6 inline-block text-white font-extrabold cursor-pointer py-4  rounded-2xl hover:bg-slate-800"
                  @click="ShowNum = index"
                  :class="[index === ShowNum ? 'border-4 border-green-400' : 'border-4 border-slate-900']">
                 {{ item.name }}
               </p>
-            </div>
+            </div> -->
           </div>
         </section>
         <div class="relative w-full flex-1 sm:block hidden">
-          <img class=" absolute z-10 w-full top-[-26%]" src="/img/hero-Illustration-1.png" alt="">
+          <img class=" absolute z-10 w-full top-[-26%]" :src="hero" alt="">
           <span class="fg rounded-full"></span>
         </div>
       </div>
     </div>
 
     <!-- 下载下拉 -->
-    <div class="flex justify-center  relative z-20">
+    <!-- <div class="flex justify-center  relative z-20">
       <div class="  main  max-w-[1300px] w-[1300px]  justify-between sm:px-11 sm:flex  relative">
         <div class="mt-3 flex flex-row flex-wrap z-10 gap-7 px-3">
           <template v-for="item in DownList.down">
@@ -96,16 +99,16 @@ const title2=window.config.title2.split(",")
         </div>
 
       </div>
-    </div>
+    </div> -->
 
     <!-- 流媒体支持 -->
-     <Home_Media></Home_Media>
+     <!-- <Home_Media></Home_Media> -->
 
     <!-- 国家 -->
-    <home_-country></home_-country>
+    <!-- <home_-country></home_-country> -->
 
     <!-- 价格 -->
-    <Home_Pric :data="taocan"></Home_Pric>
+    <!-- <Home_Pric :data="taocan"></Home_Pric> -->
   </div>
 
 </template>

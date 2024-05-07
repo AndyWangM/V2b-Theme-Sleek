@@ -2,7 +2,7 @@
 import {ref, defineProps, computed, watch} from 'vue'
 import {useDataStore} from "@/store/user.js";
 import InfoNo from "@/components/InfoNo/InfoNo.vue";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 const store=useDataStore()
 const data_index = ref(0)
 

@@ -5,11 +5,12 @@ import {Loading} from '@/components/Loading/index.js'
 import {useUserStore} from "@/store/user.js";
 
 import router from "@/router/index.js";
+import { config } from '@/assets/config';
 
 
 
 export const request=axios.create({
-    baseURL:window.config.hosturl,
+    baseURL:config.hosturl,
     headers:{
         "Content-Type":"application/x-www-form-urlencoded",
     },

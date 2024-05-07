@@ -5,7 +5,7 @@ import App from './App.vue'
 import router from "@/router/index.js";
 import pinia from "@/store/index.js";
 
-import i18n from "/public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 
 const app=createApp(App)
 

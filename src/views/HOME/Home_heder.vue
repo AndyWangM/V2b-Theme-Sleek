@@ -1,8 +1,10 @@
 <script setup>
 
 import Home_Sign from "@/views/HOME/Home_Sign.vue";
+import logo from '@/assets/img/logo.png';
+import { config } from '@/assets/config';
 
-const title=window.config.title
+const title=config.title
 
 
 
@@ -13,7 +15,7 @@ const title=window.config.title
       <div class="left">
         <a href="" class="flex items-center gap-6">
           <div class="icon w-24 h-12">
-            <img class=" h-full" src="/img/logo.png" alt="">
+            <img class=" h-full" :src="logo" alt="">
           </div>
           <div class="text-white font-bold text-2xl">
             {{title}}

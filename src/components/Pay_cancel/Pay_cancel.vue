@@ -1,5 +1,4 @@
 <script setup>
-import {defineProps} from 'vue'
 import {Go_PAY} from "@/components/Go_pay/index.js";
 import { ExclamationTriangleIcon } from '@heroicons/vue/20/solid'
 

@@ -46,15 +46,15 @@ const store=useDataStore()
 
 .hamburger input:checked + svg {
   transform: rotate(-45deg);
-//position: absolute;
-//right: 10px;
+/* position: absolute;
+right: 10px; */
 }
 
 .hamburger input:checked + svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
-//position: absolute;
-//right: 10px;
+/* position: absolute;
+right: 10px; */
 }
 
 </style>

@@ -2,12 +2,12 @@ import {defineStore} from 'pinia'
 import {ref} from 'vue'
 import {Subscribe} from "@/api/v1/User.js";
 import {data} from "autoprefixer";
+import { config } from '@/assets/config';
 
-const theme=window.config.theme
+const theme=config.theme
 export const useUserStore = defineStore('main', () => {
         const Auth_key = ref(undefined)
         const Theme = ref(theme)
-
         function Set_Auth_key(str) {
             Auth_key.value = str
         }

@@ -2,6 +2,7 @@
 import {ref, onMounted, watch} from 'vue'
 import { PlanFetch} from '@/api/v1/data.js'
 import {PlanPay} from "./Plan_Pay/index.js";
+import banner2 from '@/assets/img/banner2.png';
 
 
 const ClassIndex = ref(-1)
@@ -12,7 +13,7 @@ const data = ref(null)
 const handel_number = (value) => {
   if (typeof value === 'number') {
     const stringValue = value.toString();
-    const integerPart = stringValue.slice(0, -2);
+    const integerPart = stringValue.slice(0, -2) || "0";
     const decimalPart = stringValue.slice(-2);
     return `${integerPart}.${decimalPart}`;
   }
@@ -110,7 +111,7 @@ const Pay = () => {
       <div class="bg-[var(--theme-com)] 
       w-[100%] items-center lg:p-14  py-5   h-full  flex gap-10">
         <div class="hidden lg:block flex-1">
-          <img src="/img/banner2.png" alt="">
+          <img :src="banner2" alt="">
         </div>
         <div class="lg:w-[70%] w-full px-5 h-full  ">
           <div class=" relative flex flex-col  h-full">

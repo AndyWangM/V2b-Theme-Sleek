@@ -8,10 +8,14 @@ import {Link_Imp} from "@/views/Dashboard/Home/Link_Imp/index.js";
 import Email from "@/views/Dashboard/Home/Email.vue";
 import {Restart_Password} from "@/components/Restart_pass/index.js";
 import {onMounted, ref, watch} from "vue";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 import {Show_Bot} from "@/views/Dashboard/Home/Bot/index.js";
 import router from "@/router/index.js";
 import {useUserStore} from "@/store/user.js";
+import touxiang from '@/assets/img/touxiang.jpg';
+import qianbao from "@/assets/icon/钱包.svg";
+import liuliang from "@/assets/icon/流量.svg";
+import guanbi from "@/assets/icon/关闭.svg";
 
 const store = useDataStore()
 const userstore=useUserStore()
@@ -64,7 +68,7 @@ onMounted(() => {
       class="relative flex flex-col gap-5 bg-[var(--theme-com)] shadow-[var(--theme-shadow-bg)] shadow-lg  rounded-2xl pt-2 pb-4 text-[var(--theme-title)] ">
     <div class="absolute z-0 -top-16 left-0 right-0 m-auto  w-24 h-24 ">
       <div id="tx"></div>
-      <img class="absolute z-10 overflow-hidden w-24 h-24 rounded-full object-cover " src="/img/touxiang.jpg" alt="">
+      <img class="absolute z-10 overflow-hidden w-24 h-24 rounded-full object-cover " :src="touxiang" alt="">
     </div>
     <div class="absolute  -top-12 right-0  cursor-pointer">
       <button @click="restart" class="p-1 rounded-xl  text-sm
@@ -87,7 +91,7 @@ onMounted(() => {
         <p>{{ (store.Info.balance / 100).toFixed(2) }} {{ store.Comm_config.currency_symbol }}</p>
 
         <div class="text-neutral-300 text-sm flex justify-center gap-1 items-center">
-          <img src="/public/icon/钱包.svg" alt="">
+          <img :src="qianbao" alt="">
           <p>{{ i18n.global.t('Dashboard.balance') }}</p>
         </div>
       </div>
@@ -95,7 +99,7 @@ onMounted(() => {
 
         <p>{{ (store.Info.commission_balance / 100).toFixed(2) }}{{ store.Comm_config.currency_symbol }}</p>
         <div class="text-neutral-300 text-sm flex justify-center gap-1 items-center">
-          <img src="/public/icon/钱包.svg" alt="">
+          <img :src="qianbao" alt="">
           <p>{{ i18n.global.t('Dashboard.commission') }}</p>
         </div>
       </div>
@@ -109,14 +113,14 @@ onMounted(() => {
         <div class="flex-1 flex flex-col  rounded-xl">
           <p>{{ (store.Subscribe.transfer_enable / 1024 / 1024 / 1024).toFixed(2) }}G</p>
           <div class="text-sm flex justify-center gap-1 items-center">
-            <img class="w-6" src="/icon/流量.svg" alt="">
+            <img class="w-6" :src="liuliang" alt="">
             <p>{{ i18n.global.t('Dashboard.Transfer') }}</p>
           </div>
         </div>
         <div class="flex-1  rounded-xl">
           <p>{{ (store.Subscribe.d / 1024 / 1024 / 1024).toFixed(2) }}G</p>
           <div class="text-sm flex justify-center gap-1 items-center">
-            <img class="w-6" src="/icon/流量.svg" alt="">
+            <img class="w-6" :src="liuliang" alt="">
             <p>{{ i18n.global.t('Dashboard.Use_Transfer') }}</p>
           </div>
         </div>
@@ -125,7 +129,7 @@ onMounted(() => {
           >
             {{ store.Subscribe.expired_at === null ? '永久':moment(store.Subscribe.expired_at * 1000).format('YY/MM/DD')  }}</p>
           <div class="text-sm flex justify-center gap-1 items-center">
-            <img class="w-6" src="/public/icon/关闭.svg" alt="">
+            <img class="w-6" :src="guanbi" alt="">
             <p
             >到期</p>
           </div>

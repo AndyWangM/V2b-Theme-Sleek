@@ -3,7 +3,7 @@ import Banner from "@/components/Banner/Banner.vue";
 import {useDataStore} from "@/store/user.js";
 import Table from "@/views/Dashboard/Invite/Table.vue";
 import {Operate_Money} from "@/views/Dashboard/Invite/Money/index.js";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 const store=useDataStore()
 </script>
 <template>

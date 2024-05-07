@@ -1,5 +1,5 @@
 <script setup>
-import {defineProps, ref, render} from 'vue'
+import {ref, render} from 'vue'
 import rank from './rank.vue'
 import {Get_ticket, Save_ticket} from '@/api/v1/data.js'
 import {Show_Alerts} from "@/components/Alerts/index.js";

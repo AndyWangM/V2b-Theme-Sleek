@@ -19,7 +19,7 @@ import {useRouter,useRoute} from "vue-router";
 const router=useRouter()
 import {Show_Login} from "@/views/HOME/Login/index.js";
 import {useUserStore} from "@/store/user.js";
-import i18n from "../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 const store=useUserStore()
 const route=useRoute()
 

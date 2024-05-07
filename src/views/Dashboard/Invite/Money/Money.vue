@@ -1,10 +1,10 @@
 <script setup>
-import {defineProps,ref} from 'vue'
+import {ref} from 'vue'
 import rank from './rank.vue'
 import {useDataStore} from "@/store/user.js";
 import {Post_transfer, Post_withdraw} from "@/api/v1/Pay.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
-import i18n from "../../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 const show=useDataStore()
 const pop= defineProps({
   number:Number,

@@ -1,7 +1,8 @@
 <script setup>
-import {defineProps,onMounted,ref} from 'vue'
+import {onMounted,ref} from 'vue'
 import {Add_Chat, Get_Chat_ticket} from "@/api/v1/Chat.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
+import touxiang from '@/assets/img/touxiang.jpg';
 
 const pop=defineProps({
   id:Number,
@@ -56,7 +57,7 @@ const send=()=>{
           <!--标题-->
           <div class="flex items-center">
             <img class="rounded-full w-10 h-10"
-                 src="/img/touxiang.jpg" />
+                 :src="touxiang" />
             <div class="pl-2">
               <div class="font-semibold">
                 <p>客服</p>
@@ -85,7 +86,7 @@ const send=()=>{
               <div v-if="item.is_me!==true" class="flex items-center mb-4">
                 <div class="flex-none flex flex-col items-center space-y-1 mr-4">
                   <img class="rounded-full w-10 h-10"
-                       src="/img/touxiang.jpg" />
+                       :src="touxiang" />
                   <a href="#" class="block text-xs hover:underline">客服</a>
                 </div>
                 <div class="flex-1 bg-indigo-400 text-white p-2 rounded-lg mb-2 relative">
@@ -101,7 +102,7 @@ const send=()=>{
               <div v-else class="flex items-center flex-row-reverse mb-4">
                 <div class="flex-none flex flex-col items-center space-y-1 ml-4">
                   <img class="rounded-full w-10 h-10"
-                       src="/img/touxiang.jpg" />
+                       :src="touxiang" />
                   <a href="#" class="block text-xs hover:underline">我</a>
                 </div>
                 <div class="flex-1 bg-indigo-100 text-gray-800 p-2 rounded-lg mb-2 relative">

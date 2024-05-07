@@ -2,7 +2,9 @@
 import {Close_ticket, Get_ticket} from "@/api/v1/data.js";
 import {useDataStore} from "@/store/user.js"
 import {Popup_Chat} from "@/components/Chat/index.js";
-import i18n from "../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
+import touxiang from '@/assets/img/touxiang.jpg';
+
 const show=useDataStore()
 
 
@@ -67,7 +69,7 @@ const time_update = (number) => {
             <div class="flex items-center">
               <div class="flex-shrink-0">
 
-                <img alt="profil" src="/img/touxiang.jpg"
+                <img alt="profil" :src="touxiang"
                      class="mx-auto object-cover rounded-full h-10 w-10 "/>
 
               </div>

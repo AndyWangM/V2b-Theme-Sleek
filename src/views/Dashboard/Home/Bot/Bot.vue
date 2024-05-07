@@ -2,9 +2,11 @@
 <script setup>
 import {onMounted, ref} from "vue";
 import {getBotInfo} from "@/api/v1/data.js";
-import i18n from "../../../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
 import {useDataStore} from "@/store/user.js";
+import { config } from '@/assets/config';
+
 const store=useDataStore()
 
 const pop=defineProps({
@@ -17,7 +19,7 @@ const esc=()=>{
 }
 
 const bot=ref('')
-const url=window.config.hosturl
+const url=config.hosturl
 onMounted(async ()=>{
   try {
    let res= await getBotInfo()

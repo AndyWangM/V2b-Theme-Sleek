@@ -4,6 +4,7 @@ import {Show_Alerts} from "@/components/Alerts/index.js";
 import {computed, defineProps, onMounted, ref, watch} from 'vue'
 import {Go_PAY} from "@/components/Go_pay/index.js";
 import {useDataStore} from "@/store/user.js";
+import taocan from "@/assets/icon/套餐.svg";
 const show = useDataStore()
 
 const pop=defineProps({
@@ -115,7 +116,7 @@ const go_pay=()=>{
 
         <!--        套餐行-->
         <div class="mt-5 flex items-center">
-          <img class=" rounded-lg lg:w-24 w-20" src="/public/icon/套餐.svg" alt="">
+          <img class=" rounded-lg lg:w-24 w-20" :src="taocan" alt="">
           <div class="flex w-full justify-around items-center">
             <!--            套餐标题内容-->
             <div class="flex flex-col">

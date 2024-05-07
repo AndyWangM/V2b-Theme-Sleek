@@ -1,7 +1,8 @@
 <script setup>
 import {useDataStore} from "@/store/user.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
-import i18n from "../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
+import klipartz from '@/assets/img/klipartz.com.png';
 
 const show=useDataStore()
 
@@ -25,7 +26,7 @@ const copy_invite=()=>{
       <p @click="copy_invite" class="cursor-pointer p-3 rounded-lg bg-[#611797] shadow-xl shadow-[#611797]  mt-5">{{ i18n.global.t('Banner.Copy') }}</p>
       <!--      <p @click="copy_haibao" class="cursor-pointer p-3 rounded-lg bg-slate-900 border border-green-700">分享海报</p>-->
     </div>
-    <img class="w-[60%] pointer-events-none absolute -right-[15%] -bottom-20 scale-[1] lg:-bottom-[80%] lg:max-w-[50%] z-10 lg:-top-[10%] lg:-right-[10%]" src="/img/klipartz.com.png" alt="">
+    <img class="w-[60%] pointer-events-none absolute -right-[15%] -bottom-20 scale-[1] lg:-bottom-[80%] lg:max-w-[50%] z-10 lg:-top-[10%] lg:-right-[10%]" :src="klipartz" alt="">
   </div>
 
 
@@ -37,10 +38,10 @@ h1,p,a{
   text-shadow: 0 0 10px white;
 }
 .bg{
-//background: #fc5c7d;
-//background: -webkit-linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
-//background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
-  background: url("/img/banner.jpg") no-repeat 100%;
+  /* background: #fc5c7d;
+  background: -webkit-linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251));
+  background: linear-gradient(to right, rgb(252, 92, 125), rgb(106, 130, 251)); */
+  background: url("../../assets/img/banner.jpg") no-repeat 100%;
   background-size: cover;
 }
 </style>

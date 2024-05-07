@@ -1,12 +1,12 @@
 <script setup>
-import {defineProps, onMounted, ref} from 'vue'
+import {onMounted, ref} from 'vue'
 import {Sign_in} from './test.js'
 import {Sign_Config, Sign_In, Sign_Register, SignUp_SendEmail} from "@/api/v1/Sign.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
 import {Sign_up} from './test.js'
 import {Restart_Password} from "@/components/Restart_pass/index.js";
-import i18n from "../../../../public/i18n/i18n.js";
-
+import i18n from "@/assets/i18n/i18n.js";
+import banner from '@/assets/img/home_banner.png'
 
 const pop = defineProps({
   move_node: Function,
@@ -100,7 +100,7 @@ const Signup=()=>{
         <div
             class="h-full hidden sm:block bg-black items-center justify-center py-4">
           <div>
-            <img class="max-h-[50vh] m-auto" src="/img/home_banner.png" alt=""/>
+            <img class="max-h-[50vh] m-auto" :src="banner" alt=""/>
 
             <div class="w-full max-w-md mx-auto xl:max-w-xl">
               <h3 class="text-2xl font-bold text-center text-slate-400">{{ i18n.global.t('Home.Sign_Title') }}</h3>

@@ -1,5 +1,5 @@
 <script setup>
-import {defineProps, ref} from 'vue'
+import {ref} from 'vue'
 import {changePassword, checkLogin, password_no_auth, sendEmailVerify} from "@/api/v1/User.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
 import {useRouter} from "vue-router";

@@ -1,9 +1,8 @@
 <script setup>
-import {defineProps} from 'vue'
 import {useUserStore} from "@/store/user.js";
 import {Show_Alerts} from "@/components/Alerts/index.js";
 import {useRouter} from "vue-router";
-import i18n from "../../../public/i18n/i18n.js";
+import i18n from "@/assets/i18n/i18n.js";
 const router=useRouter()
 const store=useUserStore()
 

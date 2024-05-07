@@ -4,9 +4,12 @@ import Home_App_Icon from "@/views/Dashboard/Home_App_Icon.vue";
 import Home_Nav from "@/views/Dashboard/Home_Nav.vue";
 import {Init} from "@/views/Dashboard/index.js";
 import {onMounted, ref} from "vue";
+import logo from '@/assets/img/logo.png'
+import { config } from '@/assets/config';
+
 const store=useUserStore()
 const store1=useDataStore()
-const title=window.config.title
+const title=config.title
 
 onMounted( ()=>{
    Init()
@@ -21,7 +24,7 @@ const show_dashboard=ref(false)
       <div class="absolute bg-[var(--theme-nav-bg)] w-full  p-2 z-50">
         <div class="flex  justify-between">
           <div class="text-center flex gap-5 ml-2 items-center">
-            <img class="w-12" src="/img/logo.png" alt="">
+            <img class="w-12" :src="logo" alt="">
             <p class="text-[var(--theme-title)] text-3xl">{{ title }}</p>
           </div>
           <div class=" z-30  ">
