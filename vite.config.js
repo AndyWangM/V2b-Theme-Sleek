@@ -42,6 +42,24 @@ export default defineConfig({
   build: {
     minify: 'terser',
     terserOptions: {
+      mangle: {
+        toplevel: true,  // 混淆顶级作用域的变量名
+        keep_classnames: false, // 移除未被引用的类名
+        keep_fnames: false, // 移除未被引用的函数名
+        reserved: ['a', 'b', 'c'] // 保留特定变量名不被混淆
+      },
+      compress: {
+        sequences: true,  // 合并连续的简单语句
+        dead_code: true,  // 移除未被引用的代码
+        conditionals: true,  // 将 if 语句转换为条件表达式
+        booleans: true,  // 优化布尔表达式
+        loops: true,  // 优化循环
+        unused: true,  // 移除未被引用的变量和函数
+        drop_console: true,  // 移除 console.log
+        drop_debugger: true,  // 移除 debugger
+        reduce_vars: true,  // 优化变量
+        pure_funcs: ['console.log']  // 用于标记纯函数，这些函数的调用结果可以被静态预测，进一步优化代码
+      },
       compress: {
         //生产环境时移除console
         drop_console: true,
@@ -74,7 +92,7 @@ export default defineConfig({
             }
           }
         },
-        terser()
+        // terser()
       ],
       output: {
         manualChunks(id) {
